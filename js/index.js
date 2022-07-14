@@ -1,50 +1,84 @@
-$("#Btn1").addClass("js-nav-btn")
+const $slideLs = $("#SlideLs");
+const $btn1 = $("#Btn1");
+const $btn2 = $("#Btn2");
+const $btn3 = $("#Btn3");
+const $btn4 = $("#Btn4");
+const $btn5 = $("#Btn5");
+const $btn6 = $("#Btn6");
+const isMobile = $(window).width() <= 480;
 
-$("#Btn1").click(function(){
+
+
+$btn1.addClass("js-nav-btn")
+
+$btn1.click(function () {
+    if ($(this).hasClass("js-nav-btn")) {
+        return;
+    }
+
     $(this).addClass("js-nav-btn").siblings().removeClass("js-nav-btn");
-    $("#SlideLs").css({
+    $slideLs.css({
         left: 0,
         top: 0,
     })
+
+    if(isMobile){
+        $nav.removeClass("js-nav");
+    }
 })
 
-$("#Btn2").click(function(){
+$btn2.click(function () {
     $(this).addClass("js-nav-btn").siblings().removeClass("js-nav-btn");
-    $("#SlideLs").css({
+    $slideLs.css({
         left: "-100vw",
         top: 0,
     })
 })
 
-$("#Btn3").click(function(){
+$btn3.click(function () {
     $(this).addClass("js-nav-btn").siblings().removeClass("js-nav-btn");
-    $("#SlideLs").css({
+    $slideLs.css({
         left: "-200vw",
         top: 0,
     })
 })
 
-$("#Btn4").click(function(){
+$btn4.click(function () {
     $(this).addClass("js-nav-btn").siblings().removeClass("js-nav-btn");
-    $("#SlideLs").css({
+    $slideLs.css({
         left: 0,
         top: "-100vh",
     })
 })
 
 
-$("#Btn5").click(function(){
+$btn5.click(function () {
     $(this).addClass("js-nav-btn").siblings().removeClass("js-nav-btn");
-    $("#SlideLs").css({
+    $slideLs.css({
         left: "-100vw",
         top: "-100vh",
     })
 })
 
-$("#Btn6").click(function(){
+$btn6.click(function () {
     $(this).addClass("js-nav-btn").siblings().removeClass("js-nav-btn");
-    $("#SlideLs").css({
+    $slideLs.css({
         left: "-200vw",
         top: "-100vh",
     })
 })
+
+if (isMobile) {
+
+    const $slideItem = $slideLs.find(".slide-item");
+    const $nav = $("#Nav");
+    $slideItem.scroll(function () {
+        if ($(this).scrollTop() == 0) {
+            $nav.removeClass("js-nav");
+        } else {
+            $nav.addClass("js-nav");
+        }
+    })
+}
+
+// $(".pd-item > a").fancybox();
