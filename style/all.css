@@ -50,12 +50,17 @@ img {
   position: relative;
   top: 0;
   left: 0;
+  transition: all 1s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  /* transition-duration: .5s; */
 }
 
 .slide-item {
   width: 100vw;
   height: 100vh;
   padding: 3em 5em;
+
+  /* 當圖片數量超出範圍時，自動出現卷軸，否則無。 */
+  overflow: auto;
 }
 
 .slide-item-pdf {
@@ -168,11 +173,11 @@ img {
 }
 
 /* Modules 縮放影像 -------------------- */
-.hover-scale{
+.hover-scale {
   overflow: hidden;
 }
 
-.hover-scale:hover > .img-resp{
+.hover-scale:hover>.img-resp {
   transform: scale(1.2);
 }
 
@@ -181,13 +186,47 @@ img {
 
 .hover-transition::after,
 .hover-transition i,
-.hover-scale > .img-resp {
+.hover-scale>.img-resp {
   transition-duration: .5s;
 }
 
 
 /* State ----------------------- */
-
+.js-nav-btn{
+  background-color: #fff !important;
+}
 
 
 /* RWD --------------------------- */
+@media screen and (max-width: 1024px) {
+  .pd {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+.nav{
+  display: flex;
+  top: 0;
+  left: 0;
+  margin-top: 0;
+  width: 100%;
+  justify-content: center;
+}
+
+  .pd-item {
+    width: 50%;
+  }
+
+  .pd {
+    width: auto;
+  }
+
+  .pd-head {
+    text-align: center;
+  }
+
+  .slide-item {
+    padding: 4em 2em 2em;
+  }
+}
